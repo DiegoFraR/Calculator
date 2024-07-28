@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8ae9cf57_002D5d6e_002D473e_002D9cc9_002Df2f0a554e6ca/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AddTwoNumbers_ReturnsSum" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EC8DE74D-26E9-4C7B-BCE1-A3F789349B0B::net8.0::CalculatorUnitTests.Tests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8FFD66ED-3A4E-44D3-AF77-D3E24682A245::net8.0::CalculatorEndToEndTests.Tests.HomepageHasPlaywrightInTitleAndGetStartedLinkLinkingtoTheIntroPage&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8FFD66ED-3A4E-44D3-AF77-D3E24682A245::net8.0::CalculatorEndToEndTests.Tests.PageNameIsCalculator&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CFF8A9B3-3AD9-42E7-A846-36834D168CB9::net8.0::CalculatorEndToEndTests.Tests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

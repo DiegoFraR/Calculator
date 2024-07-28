@@ -1,0 +1,184 @@
+﻿@page "/"
+@using CalculatorEngine.CalculatorEngine
+@rendermode InteractiveServer
+
+<PageTitle>Calculator</PageTitle>
+
+<style>
+    
+</style>
+
+<table class="table-striped m-auto pe-auto mt-5 grid gap-1">
+    <tr>
+        <th><h1>Calculator</h1></th>
+        <td><button @onclick="Clear" class="btn btn-primary">Clear</button></td>
+    </tr>
+    
+    <tr>
+        <th colspan="2">
+            @switch (Answer)
+            {
+                case { ResultSuccess: true }:
+                {
+                    <div class="alert alert-info text-bg-info p-1 text-center" role="alert">
+                        <h4>@Answer.StringOperation</h4>
+                        <p>@Answer.Result</p>
+                    </div>
+                    break;
+                }
+                case { ResultSuccess: false }:
+                {
+                    <div class="alert alert-danger text-bg-info p-1 text-center" role="alert" >
+                        <p>Invalid Input: </p>
+                        <p class="dan">@Answer.ResultError</p>
+                    </div>
+                    break;
+                }
+                default:
+                {
+                    <div class="alert alert-secondary text-bg-info p-1 text-center">
+                        Enter value(s) below and select an operation!
+                    </div>
+                    break;
+                }    
+            }
+        </th>
+    </tr>
+    <tr class = "mt-3">
+        <th>Input A</th>
+        <th>Input B</th>
+    </tr>
+    
+    <tr class = "mt-3">
+        <td class="border-0">
+            <input aria-label="A" type="text" @bind="InputA"/>
+        </td>
+        <td class="border-0">
+            <input aria-label="B" type="text" @bind="InputB"/>
+        </td>
+    </tr>
+    
+    <tr class = "mt-3">
+        <th class = "mt-3">A and B</th>
+        <th>A Only</th>
+    </tr>
+    
+    <tr class="grid gap-1">
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Add">A + B</button></td>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Factorial">A!</button></td>
+    </tr>
+    
+    <tr class="grid gap-1">
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Subtract">A - B</button></td>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Sine">sin A</button></td>
+    </tr>
+    
+    <tr>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Multiplication">A * B</button></td>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Cosine">cos A</button></td>
+    </tr>
+    
+    <tr>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Division">A / B</button></td>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Tangent">tan A</button></td>
+    </tr>
+    
+    <tr>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Equals">A == B</button></td>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Reciprocal">1/A</button></td>
+    </tr>
+    
+    <tr>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Power">A ^ B</button></td>
+    </tr>
+    
+    <tr>
+        <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Log">A log B</button></td>
+    </tr>
+    
+     <tr>
+         <td class = "p-1"><button class="btn btn-secondary fs-6 fw-bold w-100" @onclick="Root">A root B</button></td>
+     </tr>
+    
+</table>
+
+@code
+{
+    private double InputA { get; set; }
+    private double InputB { get; set; }
+    private Answer? Answer { get; set; }
+    private readonly ICalculatorEngine _calculatorEngine = new CalculatorEngine();
+
+
+    private void Add()
+    {
+        Answer = _calculatorEngine.Add(InputA, InputB);
+    }
+
+    private void Factorial()
+    {
+        Answer = _calculatorEngine.Factorial(InputA);
+    }
+
+    private void Subtract()
+    {
+        Answer = _calculatorEngine.Subtract(InputA, InputB);
+    }
+    
+    private void Sine()
+    {
+        Answer = _calculatorEngine.Sine(InputA);
+    }
+
+    private void Multiplication()
+    {
+        Answer = _calculatorEngine.Multiplication(InputA, InputB);
+    }
+
+    private void Cosine()
+    {
+        Answer = _calculatorEngine.Cosine(InputA);
+    }
+    
+    private void Division()
+    {
+        Answer = _calculatorEngine.Division(InputA, InputB);
+    }
+    
+    private void Tangent()
+    {
+        Answer = _calculatorEngine.Tangent(InputA);
+    }
+
+    private void Equals()
+    {
+        Answer = _calculatorEngine.Equals(InputA, InputB);
+    }
+
+    private void Reciprocal()
+    {
+        Answer = _calculatorEngine.Reciprocal(InputA);
+    }
+
+    private void Power()
+    {
+        Answer = _calculatorEngine.RaiseToPower(InputA, InputB);
+    }
+
+    private void Log()
+    {
+        Answer = _calculatorEngine.Log(InputA, InputB);
+    }
+
+    private void Root()
+    {
+        Answer = _calculatorEngine.Root(InputA, InputB);
+    }
+    
+    private void Clear()
+    {
+        InputA = 0;
+        InputB = 0;
+        Answer = null;
+    }
+}

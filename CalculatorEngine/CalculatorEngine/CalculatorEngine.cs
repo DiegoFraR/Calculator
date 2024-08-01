@@ -4,74 +4,35 @@ public class CalculatorEngine : ICalculatorEngine
 {
     public Answer Add(double valOne, double valTwo)
     {
-        try
+        Answer answer = new Answer
         {
-            Answer answer = new Answer
-            {
-                Result = valOne + valTwo,
-                StringOperation = valOne + " + " + valTwo + " = ",
-                ResultSuccess = true,
-            };
-
-            return answer;
-        }
-        catch (Exception ex)
-        {
-            Answer answer = new Answer
-            {
-                ResultSuccess = false,
-                ResultError = "Error Occured: " + ex.Message
-            };
-            return answer;
-        }
+            Result = valOne + valTwo,
+            StringOperation = valOne + " + " + valTwo + " = ",
+            ResultSuccess = true,
+        };
+        return answer;
     }
 
     public Answer Subtract(double valOne, double valTwo)
     {
-        try
-        {
-            Answer answer = new Answer
-            {
-                Result = valOne - valTwo,
-                StringOperation = valOne + " - " + valTwo + " = ",
-                ResultSuccess = true,
-                
-            };
-            return answer;
-        }
-        catch (Exception ex)
-        {
-            Answer answer = new Answer
-            {
-                ResultSuccess = false,
-                ResultError = "Error Occured: " + ex.Message
-            };
-            return answer;
-        }
+        Answer answer = new Answer
+        { 
+            Result = valOne - valTwo, 
+            StringOperation = valOne + " - " + valTwo + " = ", 
+            ResultSuccess = true,
+        };
+        return answer;
     }
 
     public Answer Multiplication(double valOne, double valTwo)
     {
-        try
+        Answer answer = new Answer
         {
-            Answer answer = new Answer
-            {
-                Result = valOne * valTwo,
-                StringOperation = valOne + " * " + valTwo + " = ",
-                ResultSuccess = true,
-
-            };
-            return answer;
-        }
-        catch (Exception ex)
-        {
-            Answer answer = new Answer
-            {
-                ResultSuccess = false,
-                ResultError = "Error Occured: " + ex.Message
-            };
-            return answer;
-        }
+            Result = valOne * valTwo,
+            StringOperation = valOne + " * " + valTwo + " = ",
+            ResultSuccess = true,
+        };
+        return answer;
     }
 
     public Answer Division(double valOne, double valTwo)

@@ -15,15 +15,17 @@ public class Tests()
     
     //Addition Tests
     [Test]
-    [TestCase(2.5, 3, 5.5)]
-    [TestCase(3, 3, 6)]
-    [TestCase(-5, -3, -8)]
-    public void AddTwoNumbers_ReturnsSum(double valOne, double valTwo, double expected)
+    [TestCase(2.5, 3, 5.5, "2.5 + 3 = ")]
+    [TestCase(3, 3, 6, "3 + 3 = ")]
+    [TestCase(-5, -3, -8, "-5 + -3 = ")]
+    public void AddTwoNumbers_ReturnsSum(double valOne, double valTwo, double expected, string stringOperation)
     {
         //Act
         var result = _calculator.Add(valOne, valTwo);
         //Assert
         Assert.That(result.Result, Is.EqualTo(expected));
+        Assert.That(result.ResultSuccess, Is.EqualTo(true));
+        Assert.That(result.StringOperation, Is.EqualTo(stringOperation));
     }
 
     //Subtraction Tests
